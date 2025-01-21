@@ -12,7 +12,7 @@ __all__ = ['show_batch', 'show_results', 'TfmdDL', 'DataLoaders', 'FilteredBase'
            'test_set']
 
 # %% ../../nbs/03_data.core.ipynb 8
-@typedispatch
+@dispatch
 def show_batch(
     x, # Input(s) in the batch
     y, # Target(s) in the batch
@@ -31,7 +31,7 @@ def show_batch(
     return ctxs
 
 # %% ../../nbs/03_data.core.ipynb 10
-@typedispatch
+@dispatch
 def show_results(
     x, # Input(s) in the batch
     y, # Target(s) in the batch

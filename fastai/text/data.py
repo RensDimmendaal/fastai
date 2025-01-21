@@ -110,7 +110,7 @@ class LMDataLoader(TfmdDL):
         return super().new(dataset=dataset, lens=lens, seq_len=seq_len, **kwargs)
 
 # %% ../../nbs/31_text.data.ipynb 35
-@typedispatch
+@dispatch
 def show_batch(x: TensorText, y, samples, ctxs=None, max_n=10, trunc_at=150, **kwargs):
     if ctxs is None: ctxs = get_empty_df(min(len(samples), max_n))
     if trunc_at is not None: samples = L((s[0].truncate(trunc_at),*s[1:]) for s in samples)
@@ -119,7 +119,7 @@ def show_batch(x: TensorText, y, samples, ctxs=None, max_n=10, trunc_at=150, **k
     return ctxs
 
 # %% ../../nbs/31_text.data.ipynb 36
-@typedispatch
+@dispatch
 def show_batch(x: LMTensorText, y, samples, ctxs=None, max_n=10, trunc_at=150, **kwargs):
     samples = L((s[0].truncate(trunc_at), s[1].truncate(trunc_at)) for s in samples)
     return show_batch[TensorText](x, None, samples, ctxs=ctxs, max_n=max_n, trunc_at=None, **kwargs)
