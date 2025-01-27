@@ -68,9 +68,7 @@ def bb_pad(
 @dispatch
 def show_batch(x:TensorImage, y, samples, ctxs=None, max_n=10, nrows=None, ncols=None, figsize=None, **kwargs):
     if ctxs is None: ctxs = get_grid(min(len(samples), max_n), nrows=nrows, ncols=ncols, figsize=figsize)
-    f, _ = show_batch._resolve_method_with_cache((object, type(y), type(samples)))
-    ctxs = f(x, y, samples, ctxs=ctxs, max_n=max_n, **kwargs)
-    return ctxs
+    return get_show_batch_func(object)(x, y, samples, ctxs=ctxs, max_n=max_n, **kwargs)
 
 # %% ../../nbs/08_vision.data.ipynb 17
 @dispatch
