@@ -30,7 +30,7 @@ from numpy import array,ndarray
 from scipy import ndimage
 from pdb import set_trace
 from fastcore.all import *
-from fasttransform.all import *
+from fasttransform import *
 from fastprogress.fastprogress import progress_bar,master_bar
 
 try:
